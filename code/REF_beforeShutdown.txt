@@ -1,0 +1,100 @@
+34047  ll
+34048  less GATK_recalibrate.10631496.err
+34049  sbatch GATK_recalibrate_gatkOnly.sh
+34050  ll
+34051  less GATK_recalibrate.10631497.out
+34052  less GATK_recalibrate.10631497.err
+34053  less GATK_recalibrate.10631497.out
+34054  less GATK_recalibrate.10631497.out
+34055  ll
+34056  vim GATK_recalibrate_gatkOnly.sh
+34057  clear
+34058  gatk BaseRecalibator -I Ht03-14_2010_F02.sort.proper.rmdup.FILT.RG.bam -O /home/sejoslin/projects/singletons/data/bams_recalibrated/Ht03-14_2010_F02.recali.bam \
+34059  gatk BaseRecalibator -I Ht03-14_2010_F02.sort.proper.rmdup.FILT.RG.bam -O /home/sejoslin/projects/singletons/data/bams_recalibrated/Ht03-14_2010_F02.table -R /home/sejoslin/projects/singletons/data/bams_raw/DS_history_contigs_250.fasta \
+34060  gatk BaseRecalibator -I /home/sejoslin/projects/singletons/data/bams_raw/Ht03-14_2010_F02.sort.proper.rmdup.FILT.RG.bam -O /home/sejoslin/projects/singletons/data/bams_recalibrated/Ht03-14_2010_F02.recali.bam -R /home/sejoslin/projects/singletons/data/bams_raw/DS_history_contigs_250.fasta --known-sites /home/sejoslin/projects/singletons/data/bams_raw/angsdput.vcf
+34061  gatk BaseRecalibrator -I /home/sejoslin/projects/singletons/data/bams_raw/Ht03-14_2010_F02.sort.proper.rmdup.FILT.RG.bam -O /home/sejoslin/projects/singletons/data/bams_recalibrated/Ht03-14_2010_F02.recali.bam -R /home/sejoslin/projects/singletons/data/bams_raw/DS_history_contigs_250.fasta --known-sites /home/sejoslin/projects/singletons/data/bams_raw/angsdput.vcf
+34062  gatk BaseRecalibrator -I /home/sejoslin/projects/singletons/data/bams_raw/Ht03-14_2010_F02.sort.proper.rmdup.FILT.RG.bam -O /home/sejoslin/projects/singletons/data/bams_recalibrated/Ht03-14_2010_F02.table -R /home/sejoslin/projects/singletons/data/bams_raw/DS_history_contigs_250.fasta --known-sites /home/sejoslin/projects/singletons/data/bams_raw/angsdput.vcf
+34063  gatk ApplyBQSR -R /home/sejoslin/projects/singletons/data/bams_raw/Ht03-14_2010_F02.sort.proper.rmdup.FILT.RG.bam \
+34064  gatk ApplyBQSR -R /home/sejoslin/projects/singletons/data/bams_raw/DS_history_contigs_250.fasta -I /home/sejoslin/projects/singletons/data/bams_raw/Ht03-14_2010_F02.sort.proper.rmdup.FILT.RG.bam --bqsr-recal-file Ht03-14_2010_F02.table -O Ht03-14_2010_F02.recal.bam
+34065  gatk ApplyBQSR -R /home/sejoslin/projects/singletons/data/bams_raw/DS_history_contigs_250.fasta -I /home/sejoslin/projects/singletons/data/bams_raw/Ht03-14_2010_F02.sort.proper.rmdup.FILT.RG.bam --bqsr-recal-file /home/sejoslin/projects/singletons/data/bams_recalibrated/Ht03-14_2010_F02.table -O /home/sejoslin/projects/singletons/data/bams_recalibrated/Ht03-14_2010_F02.recal.bam
+34066  cd ../data/bams_raw/
+34067  l
+34068  ll | head -30
+34069  picard-tools ValidateSamFile -h
+34070  picard-tools ValidateSamFile I=Ht03-14_2010_F02.sort.proper.rmdup.FILT.RG.bam MODE=SUMMARY
+34071  picard-tools AddOrReplaceReadGroups I=Ht03-14_2010_F02.sort.proper.rmdup.FILT.bam O=Ht03-14_2010_F02.sort.proper.rmdup.FILT.RG.bam  RGID=1 RGLB=lib1 RGPL=illumina RGPU=run RGSM=Ht03-14_2010_F02
+34072  picard-tools ValidateSamFile I=Ht03-14_2010_F02.sort.proper.rmdup.FILT.RG.bam MODE=SUMMARY
+34073  picard-tools ValidateSamFile I=Ht03-14_2010_F02.sort.proper.rmdup.FILT.RG.bam MODE=VERBOSE IGNORE_WARNINGS=true
+34074  ll
+34075  ll | head -40
+34076  ll *FILT*
+34077  rm *FILT*
+34078  ll | head -40
+34079  rm badReads/ test/ DS_history_contigs_250.dict Rand20.bamlist 
+34080  rm -r badReads/ test/ DS_history_contigs_250.dict Rand20.bamlist 
+34081  ll
+34082  less README 
+34083  cd ../../code/
+34084  ll
+34085  cd ../data/bams_raw/
+34086  history | tail -50
+34087  cd ../
+34088  ll
+34089  cd ../code/
+34090  ll
+34091  sbatch  GATK_recalibrate_gatkOnly.sh
+34092  cd ../data/bams_raw/
+34093  ll
+34094  ll | head -40
+34095  ll | head -40
+34096  cd badReads/
+34097  ll
+34098  head Ht03-14_2010_F02.badReads.list 
+34099  cd ../
+34100  ll
+34101  ll test/
+34102  ll
+34103  cd ../../code/
+34104  ll
+34105  rm Ht03-14_2010_F02.recal.bai
+34106  rm Ht03-14_2010_F02.recal.bam
+34107  ll
+34108  less GATK_recalibrate.10631834.err
+34109  clear
+34110  ll
+34111  vim GATK_recalibrate_gatkOnly.sh
+34112  vim GATK_recalibrate_gatkOnly.sh
+34113  vim GATK_recalibrate_gatkOnly.sh
+34114  vim GATK_recalibrate_gatkOnly.sh
+34115  gatk IndexFeatureFile -h
+34116  gatk IndexFeatureFile -F ~sejoslin/projects/singletons/data/bams_raw/angsdput.vcf 
+34117  ll /home/sejoslin/projects/singletons/data/bams_raw/ | head -20
+34118  rm -r /home/sejoslin/projects/singletons/data/bams_raw/badReads/ /home/sejoslin/projects/singletons/data/bams_raw/*FILT* /home/sejoslin/projects/singletons/data/bams_raw/test/ /home/sejoslin/projects/singletons/data/bams_raw/DS_history_contigs_250.dict
+34119  ll ../data/bams_recalibrated/
+34120  rm ../data/bams_recalibrated/*
+34121  ll
+34122  sbatch GATK_recalibrate_gatkOnly.sh
+34123  ll
+34124  watch -5 tail GATK_recalibrate.10636751.err
+34125  watch -n 5 tail GATK_recalibrate.10636751.err
+34126  ll
+34127  less GATK_recalibrate.10636751.err
+34128  gatk IndexFeatureFile ../data/bams_raw/angsdput.vcf
+34129  gatk IndexFeatureFile -F ../data/bams_raw/angsdput.vcf
+34130  ll
+34131  less GATK_recalibrate.10636751.out
+34132  less GATK_recalibrate.10636751.err
+34133  gatk BaseRecalibrator -I /home/sejoslin/projects/singletons/data/bams_raw/Ht03-14_2010_F02.sort.proper.r
+34134  mdup.FILT.RG.bam -O /home/sejoslin/projects/singletons/data/bams_recalibrated/Ht03-14_2010_F02.table -R
+34135  /home/sejoslin/projects/singletons/data/bams_raw/DS_history_contigs_250.fasta --known-sites /home/sejosl
+34136  less GATK_recalibrate.10636751.err
+34137  gatk BaseRecalibrator -I /home/sejoslin/projects/singletons/data/bams_raw/Ht03-14_2010_F02.sort.proper.rmdup.FILT.RG.bam -O /home/sejoslin/projects/singletons/data/bams_recalibrated/Ht03-14_2010_F02.table -R /home/sejoslin/projects/singletons/data/bams_raw/DS_history_contigs_250.fasta --known-sites /home/sejoslin/projects/singletons/data/bams_raw/angsdput.vcf
+34138  less GATK_recalibrate.10636751.err
+34139  vim GATK_recalibrate_gatkOnly.sh 
+34140  ll
+34141  less GATK_recalibrate.10636751.err
+34142  vim GATK_recalibrate_gatkOnly.sh 
+34143  less GATK_recalibrate.10636751.err
+34144  gatk BaseRecalibrator -I /home/sejoslin/projects/singletons/data/bams_raw/Ht03-14_2010_F02.sort.proper.rmdup.FILT.RG.bam -O /home/sejoslin/projects/singletons/data/bams_recalibrated/Ht03-14_2010_F02.table -R /home/sejoslin/projects/singletons/data/bams_raw/DS_history_contigs_250.fasta --known-sites /home/sejoslin/projects/singletons/data/bams_raw/angsdput.vcf
+34145  gatk ApplyBQSR -R /home/sejoslin/projects/singletons/data/bams_raw/DS_history_contigs_250.fasta -I /home/sejoslin/projects/singletons/data/bams_raw/Ht03-14_2010_F02.sort.proper.rmdup.FILT.RG.bam --bqsr-recal-file /home/sejoslin/projects/singletons/data/bams_recalibrated/Ht03-14_2010_F02.table -O /home/sejoslin/projects/singletons/data/bams_recalibrated/Ht03-14_2010_F02.recal.bam
+34146  history | tail -100 >> REF_beforeShutdown.txt
